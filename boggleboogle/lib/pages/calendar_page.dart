@@ -49,14 +49,9 @@ class _CalendarPageState extends State<CalendarPage> {
               alignment: Alignment(0.0, 3.5),
               child: Container(
                 child: Image.asset(
-<<<<<<< HEAD
                     'assets/images/boggle-cutout.png'),
                 width: 40,
                 height: 40,
-=======
-                    '/Users/gyul/bogleboogle/boggleboogle/lib/boggle-cutout.png'),
-                width: 45,
-                height: 45,
               ),
             );
           } else if (events.isNotEmpty) {
@@ -64,10 +59,9 @@ class _CalendarPageState extends State<CalendarPage> {
               alignment: Alignment(0.0, 3.5),
               child: Container(
                 child: Image.asset(
-                    '/Users/gyul/bogleboogle/boggleboogle/lib/boogle.png'),
+                    'assets/images/boggle.png'),
                 width: 45,
                 height: 45,
->>>>>>> 9ae7936930d7a8716f6c1e2dff66f1590556a9d5
               ),
             );
           }
