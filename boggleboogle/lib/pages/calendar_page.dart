@@ -59,7 +59,7 @@ class _CalendarPageState extends State<CalendarPage> {
               alignment: Alignment(0.0, 3.5),
               child: Container(
                 child: Image.asset(
-                    'assets/images/boggle.png'),
+                    'assets/images/boogle.png'),
                 width: 45,
                 height: 45,
               ),
