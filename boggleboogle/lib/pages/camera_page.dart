@@ -1,7 +1,9 @@
 import 'dart:io';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'database_key.dart';
 
 class CameraPage extends StatefulWidget {
   const CameraPage({Key? key}) : super(key: key);
@@ -13,6 +15,17 @@ class CameraPage extends StatefulWidget {
 class _CameraPageState extends State<CameraPage> {
   File? _image;
   final picker = ImagePicker();
+  FirebaseDatabase? _database;
+  FirebaseDatabase database = FirebaseDatabase.instance;
+  DatabaseReference? reference;
+  String _databaceURL =
+      'https://bogleboogle-default-rtdb.asia-southeast1.firebasedatabase.app/';
+
+  List<Boggle> glegle = new List.empty(growable: true);
+  @override
+  void initState() {
+    super.initState();
+  }
 
   Future getImage(ImageSource imageSource) async {
     final image = await picker.pickImage(source: imageSource);
@@ -20,7 +33,6 @@ class _CameraPageState extends State<CameraPage> {
       _image = File(image!.path);
     });
   }
-
 
   Widget showImage() {
     return Container(
