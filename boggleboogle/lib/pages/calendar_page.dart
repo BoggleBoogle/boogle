@@ -37,22 +37,37 @@ class _CalendarPageState extends State<CalendarPage> {
         _focusedDay = focusedDay;
       },
       eventLoader: (day) {
-        if (day.weekday == DateTime.monday) {
+        if (day.day < DateTime.now().day) {
           return ['hi'];
         }
-
         return [];
       },
       calendarBuilders: CalendarBuilders(
         markerBuilder: (context, date, events) {
-          if (events.isNotEmpty) {
+          if (events.toString() == 'hi') {
             return Align(
-              alignment: Alignment(0.0, 3.8),
+              alignment: Alignment(0.0, 3.5),
               child: Container(
                 child: Image.asset(
+<<<<<<< HEAD
                     'assets/images/boggle-cutout.png'),
                 width: 40,
                 height: 40,
+=======
+                    '/Users/gyul/bogleboogle/boggleboogle/lib/boggle-cutout.png'),
+                width: 45,
+                height: 45,
+              ),
+            );
+          } else if (events.isNotEmpty) {
+            return Align(
+              alignment: Alignment(0.0, 3.5),
+              child: Container(
+                child: Image.asset(
+                    '/Users/gyul/bogleboogle/boggleboogle/lib/boogle.png'),
+                width: 45,
+                height: 45,
+>>>>>>> 9ae7936930d7a8716f6c1e2dff66f1590556a9d5
               ),
             );
           }
@@ -107,9 +122,12 @@ class _CalendarPageState extends State<CalendarPage> {
           shape: BoxShape.rectangle,
         ),
         todayTextStyle: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Color.fromARGB(255, 4, 84, 14),
-            backgroundColor: Color.fromARGB(255, 141, 166, 140)),
+          fontWeight: FontWeight.bold,
+          color: Color.fromARGB(255, 4, 84, 14),
+          decoration: TextDecoration.underline,
+          decorationColor: Color.fromARGB(245, 23, 58, 21),
+          //backgroundColor: Color.fromARGB(255, 141, 166, 140)
+        ),
       ),
       headerStyle: HeaderStyle(
         formatButtonVisible: false,
