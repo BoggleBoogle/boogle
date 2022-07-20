@@ -50,7 +50,7 @@ class _CalendarPageState extends State<CalendarPage> {
               alignment: Alignment(0.0, 3.8),
               child: Container(
                 child: Image.asset(
-                    '/Users/gyul/bogleboogle/boggleboogle/lib/boggle-cutout.png'),
+                    'assets/images/boggle-cutout.png'),
                 width: 40,
                 height: 40,
               ),
