@@ -22,29 +22,19 @@ class _CalendarPageState extends State<CalendarPage> {
       lastDay: DateTime.utc(2050, 12, 31),
       focusedDay: DateTime.now(),
       locale: 'ko-KR',
-      daysOfWeekHeight: 30,
+      //daysOfWeekHeight: 10,
       rowHeight: 60,
-      selectedDayPredicate: (day) {
-        return isSameDay(_selectedDay, day);
-      },
-      onDaySelected: (selectedDay, focusedDay) {
-        setState(() {
-          _selectedDay = selectedDay;
-          _focusedDay = focusedDay; // update `_focusedDay` here as well
-        });
-      },
-      onPageChanged: (focusedDay) {
-        _focusedDay = focusedDay;
-      },
       eventLoader: (day) {
-        if (day.day < DateTime.now().day) {
+        if (day.weekday == DateTime.monday && day.day < DateTime.now().day) {
+          return ['hiqq', '2222'];
+        } else if (day.day < DateTime.now().day) {
           return ['hi'];
         }
         return [];
       },
       calendarBuilders: CalendarBuilders(
         markerBuilder: (context, date, events) {
-          if (events.toString() == 'hi') {
+          if (events.length > 1) {
             return Align(
               alignment: Alignment(0.0, 3.5),
               child: Container(
@@ -54,12 +44,13 @@ class _CalendarPageState extends State<CalendarPage> {
                 height: 45,
               ),
             );
-          } else if (events.isNotEmpty) {
+          } else if (events.length > 0) {
             return Align(
               alignment: Alignment(0.0, 3.5),
               child: Container(
                 child: Image.asset(
                     '/Users/gyul/bogleboogle/boggleboogle/lib/boogle.png'),
+                //child: Icon(Icons.favorite_border_outlined, color: Colors.red),
                 width: 45,
                 height: 45,
               ),
