@@ -25,20 +25,29 @@ class _CalendarPageState extends State<CalendarPage> {
       //daysOfWeekHeight: 10,
       rowHeight: 60,
       eventLoader: (day) {
+<<<<<<< HEAD
         if (day.weekday == DateTime.monday && day.day < DateTime.now().day) {
           return ['hiqq', '2222'];
         } else if (day.day < DateTime.now().day) {
+=======
+        if (day.day < DateTime.now().day) {
+>>>>>>> 5e917d287451672cd64f512aaf69f55a22eafcaa
           return ['hi'];
         }
         return [];
       },
       calendarBuilders: CalendarBuilders(
         markerBuilder: (context, date, events) {
+<<<<<<< HEAD
           if (events.length > 1) {
+=======
+          if (events.toString() == 'hi') {
+>>>>>>> 5e917d287451672cd64f512aaf69f55a22eafcaa
             return Align(
               alignment: Alignment(0.0, 3.5),
               child: Container(
                 child: Image.asset(
+<<<<<<< HEAD
                     '/Users/gyul/bogleboogle/boggleboogle/lib/boggle-cutout.png'),
                 width: 45,
                 height: 45,
@@ -51,6 +60,21 @@ class _CalendarPageState extends State<CalendarPage> {
                 child: Image.asset(
                     '/Users/gyul/bogleboogle/boggleboogle/lib/boogle.png'),
                 //child: Icon(Icons.favorite_border_outlined, color: Colors.red),
+                width: 45,
+                height: 45,
+=======
+                    'assets/images/boggle-cutout.png'),
+                width: 40,
+                height: 40,
+>>>>>>> 5e917d287451672cd64f512aaf69f55a22eafcaa
+              ),
+            );
+          } else if (events.isNotEmpty) {
+            return Align(
+              alignment: Alignment(0.0, 3.5),
+              child: Container(
+                child: Image.asset(
+                    'assets/images/boogle.png'),
                 width: 45,
                 height: 45,
               ),

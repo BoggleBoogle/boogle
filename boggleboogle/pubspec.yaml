@@ -44,6 +44,7 @@ dependencies:
   get: ^4.6.5
   firebase_messaging: ^12.0.0
   flutter_local_notifications: ^9.7.0
+  image_picker: ^0.8.5+3
 
 dev_dependencies:
   flutter_test:
@@ -69,9 +70,14 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+<<<<<<< HEAD
     - /Users/gyul/bogleboogle/boggleboogle/lib/boggle-cutout.png
     - /Users/gyul/bogleboogle/boggleboogle/lib/boogle.png
     - /Users/gyul/bogleboogle/boggleboogle/lib/boogle_outline.png
+=======
+    - assets/images/boggle-cutout.png
+    - assets/images/boogle.png
+>>>>>>> 5e917d287451672cd64f512aaf69f55a22eafcaa
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

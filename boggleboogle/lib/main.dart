@@ -13,6 +13,7 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/intl.dart';
 
 import 'pages/calendar_page.dart';
+import 'pages/camera_page.dart';
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -95,10 +96,7 @@ class _StartPageState extends State<StartPage> {
 
 List _widgetOptions = [
   CalendarPage(),
-  Text(
-    'Music',
-    style: TextStyle(fontSize: 30, fontFamily: 'DoHyeonRegular'),
-  ),
+  CameraPage(),
   Text(
     'Places',
     style: TextStyle(fontSize: 30, fontFamily: 'DoHyeonRegular'),
