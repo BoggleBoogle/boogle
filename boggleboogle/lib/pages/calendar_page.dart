@@ -12,6 +12,9 @@ class CalendarPage extends StatefulWidget {
 }
 
 class _CalendarPageState extends State<CalendarPage> {
+  DateTime? _selectedDay;
+  DateTime _focusedDay = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return TableCalendar(
@@ -19,7 +22,41 @@ class _CalendarPageState extends State<CalendarPage> {
       lastDay: DateTime.utc(2050, 12, 31),
       focusedDay: DateTime.now(),
       locale: 'ko-KR',
+      daysOfWeekHeight: 30,
+      rowHeight: 60,
+      selectedDayPredicate: (day) {
+        return isSameDay(_selectedDay, day);
+      },
+      onDaySelected: (selectedDay, focusedDay) {
+        setState(() {
+          _selectedDay = selectedDay;
+          _focusedDay = focusedDay; // update `_focusedDay` here as well
+        });
+      },
+      onPageChanged: (focusedDay) {
+        _focusedDay = focusedDay;
+      },
+      eventLoader: (day) {
+        if (day.weekday == DateTime.monday) {
+          return ['hi'];
+        }
+
+        return [];
+      },
       calendarBuilders: CalendarBuilders(
+        markerBuilder: (context, date, events) {
+          if (events.isNotEmpty) {
+            return Align(
+              alignment: Alignment(0.0, 3.8),
+              child: Container(
+                child: Image.asset(
+                    '/Users/gyul/bogleboogle/boggleboogle/lib/boggle-cutout.png'),
+                width: 40,
+                height: 40,
+              ),
+            );
+          }
+        },
         dowBuilder: (context, day) {
           switch (day.weekday) {
             case 1:
@@ -66,12 +103,13 @@ class _CalendarPageState extends State<CalendarPage> {
         weekendTextStyle: TextStyle(color: Color.fromARGB(255, 158, 158, 158)),
         outsideDaysVisible: false,
         todayDecoration: BoxDecoration(
-            color: Color.fromARGB(128, 160, 244, 86),
-            shape: BoxShape.circle,
-            border: Border.all(
-                color: Color.fromARGB(128, 160, 244, 86), width: 1.5)),
+          color: Color.fromARGB(0, 160, 244, 86),
+          shape: BoxShape.rectangle,
+        ),
         todayTextStyle: TextStyle(
-            fontWeight: FontWeight.bold, color: Color.fromARGB(255, 4, 84, 14)),
+            fontWeight: FontWeight.bold,
+            color: Color.fromARGB(255, 4, 84, 14),
+            backgroundColor: Color.fromARGB(255, 141, 166, 140)),
       ),
       headerStyle: HeaderStyle(
         formatButtonVisible: false,

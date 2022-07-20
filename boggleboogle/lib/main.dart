@@ -13,6 +13,13 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/intl.dart';
 
 import 'pages/calendar_page.dart';
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 void main() {
   initializeDateFormatting().then((_) => runApp(MyApp()));
